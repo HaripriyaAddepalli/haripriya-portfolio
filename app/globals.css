@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #a855f7;
+  --primary-foreground: #ffffff;
+  --secondary: #ec4899;
+  --accent: #06b6d4;
+}
+
+html {
+  scroll-behavior: smooth;
+    transition: all 300ms ease-out; 
+  color-scheme: dark;
+}
+
+body {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 1) 0%, rgba(88, 28, 135, 0.1) 100%);
+  color: var(--foreground);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(88, 28, 135, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.8);
+}
+
+/* Smooth transitions */
+@layer components {
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .glass-morphism {
+    @apply backdrop-blur-xl bg-white/5 border border-purple-500/20;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+
+  .button-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 active:scale-95;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20;
+  }
+}
+
+/* Animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply bg-gradient-to-r from-purple-900/20 to-pink-900/20 animate-pulse;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-purple-500 text-white;
+}
+
+::-moz-selection {
+  @apply bg-purple-500 text-white;
+}
